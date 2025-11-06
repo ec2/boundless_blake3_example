@@ -1,0 +1,22 @@
+[package]
+name = "demo"
+version = "0.1.0"
+edition = "2024"
+
+[features]
+cuda = ["risc0-zkvm/cuda", "shrink_bitvm2/cuda"]
+
+[dependencies]
+alloy = { workspace = true, default-features = false, features = ["essentials"] }
+alloy-primitives = { workspace = true, default-features = false, features = ["rlp", "serde", "std"] }
+alloy-sol-types = { workspace = true }
+anyhow = { workspace = true, default-features = false }
+boundless-market = { workspace = true }
+clap = { workspace = true, features = ["derive", "env"] }
+guest = { workspace = true }
+tokio = { workspace = true, features = ["full"] }
+tracing = { workspace = true }
+tracing-subscriber = { workspace = true, features = ["env-filter"] }
+url = { workspace = true }
+risc0-zkvm = { workspace = true, default-features = false, features = ["prove", "bonsai"] }
+shrink_bitvm2 = { workspace = true, features = ["prove"] }

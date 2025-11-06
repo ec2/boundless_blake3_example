@@ -1,0 +1,21 @@
+{
+    "rust-analyzer.check.allTargets": true,
+    "rust-analyzer.cargo.features": "all",
+    "rust-analyzer.server.extraEnv": {
+        "RISC0_SKIP_BUILD": "1",
+        "RISC0_SKIP_BUILD_KERNELS": "1",
+        "CARGO_TARGET_DIR": "target/analyzer"
+    },
+    "rust-analyzer.check.command": "clippy",
+    "rust-analyzer.check.extraArgs": [
+        "--target-dir=target/analyzer"
+    ],
+    "rust-analyzer.linkedProjects": [
+        "./Cargo.toml",
+        "./demo/Cargo.toml",
+    ],
+    "rust-analyzer.files.exclude": [
+        "./lib/",
+        "./contracts/out/"
+    ],
+}
