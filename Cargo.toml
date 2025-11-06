@@ -19,8 +19,8 @@ hex = "0.4"
 risc0-zkvm = { version = "3.0.3", default-features = false }
 risc0-build = { version = "3.0.3" }
 
-boundless-market = { git = "https://github.com/boundless-xyz/boundless.git", branch = "ec2/shrink_bitvm2_mono" }
-shrink_bitvm2 = { git = "https://github.com/boundless-xyz/boundless.git", branch = "ec2/shrink_bitvm2_mono", default-features = false }
+boundless-market = { git = "https://github.com/boundless-xyz/boundless.git", branch = "ec2/shrink_bitvm2" }
+shrink_bitvm2 = { git = "https://github.com/boundless-xyz/boundless.git", branch = "ec2/shrink_bitvm2", default-features = false }
 
 [patch.crates-io]
 risc0-ethereum-contracts = { git = "https://github.com/ec2/risc0-ethereum.git", rev = "a5bf55285c5ea2e65de9c53421987449e2db046d" }
