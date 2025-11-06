@@ -71,5 +71,8 @@ BOUNDLESS_MINING=false REST_API_DOCKERFILE=dockerfiles/rest_api.dockerfile BROKE
 At this point, a Boundless market should be deployed locally and Bento should be started as well. To request an order through the market, run:
 
 ```
+# Exports all environment of the boundless local network.
+source .env.localnet
+
 just prove-boundless
 ```
