@@ -4,7 +4,7 @@ version = "0.1.0"
 edition = "2024"
 
 [features]
-cuda = ["risc0-zkvm/cuda", "shrink_bitvm2/cuda"]
+cuda = ["risc0-zkvm/cuda", "blake3_groth16/cuda"]
 
 [dependencies]
 alloy = { workspace = true, default-features = false, features = ["essentials"] }
@@ -19,4 +19,4 @@ tracing = { workspace = true }
 tracing-subscriber = { workspace = true, features = ["env-filter"] }
 url = { workspace = true }
 risc0-zkvm = { workspace = true, default-features = false, features = ["prove", "bonsai"] }
-shrink_bitvm2 = { workspace = true, features = ["prove"] }
+blake3_groth16 = { workspace = true, features = ["prove"] }

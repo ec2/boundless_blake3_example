@@ -21,13 +21,15 @@ impl Args {
         })
         .await
         .unwrap();
-        tracing::info!("Initial receipt created, compressing to shrink_bitvm2");
-        let groth16_receipt = shrink_bitvm2::compress_bitvm2(&receipt).await.unwrap();
+        tracing::info!("Initial receipt created, compressing to blake3_groth16");
+        let groth16_receipt = blake3_groth16::compress_blake3_groth16(&receipt)
+            .await
+            .unwrap();
         let groth16_receipt = groth16_receipt.inner.groth16().unwrap();
         let blake3_g16_seal = Groth16Seal::decode(&groth16_receipt.seal).unwrap();
         let blake3_claim_digest =
-            shrink_bitvm2::ShrinkBitvm2ReceiptClaim::ok(ECHO_ID, input.to_vec()).digest();
-        shrink_bitvm2::verify::verify(&blake3_g16_seal, blake3_claim_digest)
+            blake3_groth16::Blake3Groth16ReceiptClaim::ok(ECHO_ID, input.to_vec()).digest();
+        blake3_groth16::verify::verify(&blake3_g16_seal, blake3_claim_digest)
             .expect("verification failed");
         tracing::info!("done");
         Ok(())

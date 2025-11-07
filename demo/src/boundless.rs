@@ -50,7 +50,7 @@ impl Args {
         ];
 
         let blake3_claim_digest =
-            shrink_bitvm2::ShrinkBitvm2ReceiptClaim::ok(ECHO_ID, echo_message.to_vec())
+            blake3_groth16::Blake3Groth16ReceiptClaim::ok(ECHO_ID, echo_message.to_vec())
                 .claim_digest();
 
         tracing::info!("Blake3 claim digest: {:?}", blake3_claim_digest);
@@ -72,7 +72,7 @@ impl Args {
             )
             .with_stdin(echo_message)
             .with_program(ECHO_ELF)
-            .with_shrink_bitvm2_proof();
+            .with_blake3_groth16_proof();
 
         let (request_id, expires_at) = client.submit_onchain(request).await?;
 
@@ -95,9 +95,9 @@ impl Args {
 
         let seal = fulfillment.seal;
         tracing::info!("Seal length: {}", seal.len());
-        let proof = shrink_bitvm2::Groth16Seal::decode(&seal[4..])?;
+        let proof = blake3_groth16::Groth16Seal::decode(&seal[4..])?;
         tracing::info!("Verifying proof...");
-        shrink_bitvm2::verify::verify(&proof, blake3_claim_digest)?;
+        blake3_groth16::verify::verify(&proof, blake3_claim_digest)?;
         tracing::info!("Proof verified successfully");
         Ok(())
     }
