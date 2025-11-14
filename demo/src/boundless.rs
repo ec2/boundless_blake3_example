@@ -95,9 +95,7 @@ impl Args {
 
         let seal = fulfillment.seal;
         tracing::info!("Seal length: {}", seal.len());
-        let proof = blake3_groth16::Groth16Seal::decode(&seal[4..])?;
-        tracing::info!("Verifying proof...");
-        blake3_groth16::verify::verify(&proof, blake3_claim_digest)?;
+        blake3_groth16::verify::verify_seal(&seal[4..], blake3_claim_digest)?;
         tracing::info!("Proof verified successfully");
         Ok(())
     }
