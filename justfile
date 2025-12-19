@@ -22,3 +22,6 @@ prove-bento:
 # Prove by sending an order to the Boundless Market
 prove-boundless:
     S3_BUCKET={{S3_BUCKET}} S3_URL={{S3_URL}} S3_ACCESS_KEY={{S3_ACCESS_KEY}} S3_SECRET_KEY={{S3_SECRET_KEY}} AWS_REGION={{AWS_REGION}} cargo run -r -F cuda boundless
+
+prove-local-docker:
+    cargo run -r risc0 

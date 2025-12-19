@@ -19,5 +19,5 @@ hex = "0.4"
 risc0-zkvm = { version = "3.0.3", default-features = false }
 risc0-build = { version = "3.0.3" }
 
-boundless-market = { git = "https://github.com/boundless-xyz/boundless.git", branch = "ec2/shrink_bitvm2" }
-blake3_groth16 = { git = "https://github.com/boundless-xyz/boundless.git", branch = "ec2/shrink_bitvm2", default-features = false }
+boundless-market = { git = "https://github.com/boundless-xyz/boundless.git", branch = "main" }
+blake3_groth16 = { git = "https://github.com/boundless-xyz/boundless.git", branch = "main", default-features = false }
